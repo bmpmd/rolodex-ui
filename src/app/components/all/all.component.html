@@ -1,0 +1,36 @@
+<div>
+
+    <div>
+        <!-- title prop in allcomponents.ts-->
+        <h2 class="card-header text-center">{{title}}</h2>
+    </div>
+    <div class="card-body">
+        <ul class="list-group" *ngFor="let u of users">
+            <!-- display each user's id, firstname, lastname, etc -->
+            <!--how? we are getting from server, so we need an http request
+            to the server. we need to get a property in this component  -->
+            <li class="list-group-item">Id: {{u.id}}</li>
+            <li class="list-group-item">First Name {{u.firstName}}</li>
+            <li class="list-group-item">Last Name {{u.lastName}}</li>
+            <li class="list-group-item">Username {{u.username}}</li>
+            <li class="list-group-item">Email {{u.email}}</li>
+
+
+
+            <!-- IF there are no users, display the client message
+            otherwise, show the list  -->
+            <!-- ng if statement is checking the user array in the component's property.[ngClass]="
+                c" for now it is empty since no html request -->
+
+        </ul>
+        <div *ngIf="users.length== 0">
+            {{clientMessage.message}}
+        </div>
+
+        <div>
+            <!-- here we bind the event!! -->
+            <button class="btn btn-secondary btn-center" (click)="findAllUsers()">Fetch users!</button>
+        </div>
+    </div>
+
+</div>

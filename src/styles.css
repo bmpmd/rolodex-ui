@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* changing padding/styling of cards in our app!! */
+body{
+    background-color: whitesmoke;
+    height: 100%;
+
+}
+
+.card{
+    padding: 1%;
+    border: 1%;
+}
