@@ -1,15 +1,15 @@
 import { AllComponent } from './components/all/all.component';
 import { MainComponent } from './components/main/main.component';
-import { RegisterComponent } from './components/register/register.component';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
 
-//this is where our custom urls go 
 const routes: Routes = [
-  {path: "main", component:MainComponent}, // at http://localhost:4200/main, this component will be init
-  {path: "all", component:AllComponent}, // make sure to import the component as this name 
-  {path: "register", component:RegisterComponent},
-  {path: '**', component:MainComponent} // wildcard goes at end so that it goes back to some main component as default 
+  {path: 'main', component:MainComponent}, // at http://localhost:4200/main
+  {path: 'all', component:AllComponent},
+  {path: 'register', component:RegisterComponent},
+   // a WildCard Route is used to handle unknown paths (ALWAYS goes last)
+  {path: '**', component:MainComponent}
 ];
 
 @NgModule({
