@@ -1,0 +1,37 @@
+<div>
+
+    <div>
+        <h2 class="card-header text-center">{{title}}</h2>
+    </div>
+    <div class="card-body">
+
+        <h5 class="card-title">Please enter the ID of the user you want to find:</h5>
+
+        <!-- create input area for the user to type an ID 
+        USING two-way property binding-->
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addonn-wrapping">ID</span>
+            <!-- bind id and when button is clicked it triggers finduser in find component -->
+            <input [(ngModel)]="userId" type="number" name="userId" class="form-control" placeholder="Enter User ID...">
+            <button (click)="findUser()" class="btn btn-secondary">Find</button>
+        </div>
+        <!-- set up *ngIf directive so that 
+        IF the user is found, display all info -->
+        <!-- check if the id of the user is returned > 0. if it is, it displays -->
+        <ul *ngIf="this.user.id" id="user-info">
+            <!-- Display each user's id, firstname, lastname...-->
+            <li class="list-group-item">Id: {{user.id}}</li>
+            <li class="list-group-item">First Name {{user.firstName}}</li>
+            <li class="list-group-item">Last Name {{user.lastName}}</li>
+            <li class="list-group-item">Username {{user.username}}</li>
+            <li class="list-group-item">Email {{user.email}}</li>
+        </ul>
+
+        <!-- display a client msg if something goes wrong (clientmsg in find component)-->
+        <!-- if the length of the message is > 0, interpolate the msg -->
+        <div *ngIf="clientMessage.message.length" class="alert-danger" role="alert">
+            <!-- alert-danger shows up as red, rolealert makes it an alert-->
+            {{clientMessage.message}}
+        </div>
+    </div>
+</div>
