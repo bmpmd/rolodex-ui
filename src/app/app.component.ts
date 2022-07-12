@@ -24,7 +24,10 @@ export class AppComponent {
   }
 
   //flush the browser's session when we sign out 
+  // hacky way. 
   signOut():void{
     window.location.reload();
+    //NgRx is state management for Angular 
+    // this.isLoggedIn = false; also does it 
   }
 }
