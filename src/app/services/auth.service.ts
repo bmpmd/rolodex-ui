@@ -41,7 +41,7 @@ export class AuthService {
     // 1. set up payload (the body of the http request)
     const payload = {username, password};
     // 2.  return the this.http.post method 
-    return this.http.post<any>(this.loginUrl, payload, this.httpOptions)
+    return this.http.post<any>(this.loginUrl, payload, {observe: "response"})
     
     
     // if options iss buggy pass in 
