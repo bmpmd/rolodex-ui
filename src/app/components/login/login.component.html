@@ -1,0 +1,29 @@
+<!-- set up form to capture username and password -->
+
+<!-- we need to use 2 WAY DATABINDING to pass the values to the component class (ts file)-->
+<!-- invoke a method FROM the component class to call the AUTH SERVICE 
+     (pass in those values)-->
+
+<div>
+    <div class="card-body">
+
+        <form action="">
+            <div>
+                <!-- set ngmodel to property in the component class -->
+                <input [(ngModel)]="username" type="text" name="username" id="username"
+                    placeholder="Enter your username" autocomplete="off">
+            </div>
+            <div>
+                <!-- set ngmodel to property in the component class -->
+                <input [(ngModel)]="password" type="password" name="password" id="password"
+                    placeholder="Enter your password" autocomplete="off">
+            </div>
+
+            <!-- hide button when the request is loading -->
+            <!-- event bdining: when clicked , invokes login method  in component class-->
+            <div class="btn btn-secondary" (click)="login()" *ngIf="!isLoading">Log in </div>
+            <!-- when the login error message changes, show msg using one way data binding-->
+            <p>{{loginErrMsg}}</p>
+        </form>
+    </div>
+</div>
